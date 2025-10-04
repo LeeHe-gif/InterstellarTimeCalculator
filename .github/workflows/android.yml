@@ -69,7 +69,7 @@ jobs:
         with:
             body_path: ./release.txt
             name: v${{ github.tag_name }}
-            # tag_name: ${{ github.tag_name }}
+            tag_name: ${{ github.tag_name }}
             files: |
               ./apks/app-debug.apk
               ./apks/app-release-unsigned.apk
