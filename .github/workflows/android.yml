@@ -68,7 +68,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
             body_path: ./release.txt
-            if: github.ref_type == 'tag'
+            if: github.ref_type == 'tag_name'
             files: |
               ./apks/app-debug.apk
               ./apks/app-release-unsigned.apk
