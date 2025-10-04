@@ -68,10 +68,11 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          name: v1.0
-          body_path: release.txt
+          body_path: ./release.txt
           files: |
             ./apks/app-debug.apk
             ./apks/app-release-unsigned.apk
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
