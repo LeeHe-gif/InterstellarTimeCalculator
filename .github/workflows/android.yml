@@ -27,7 +27,7 @@ jobs:
       - name: Create signing.properties
         run: |
           cat > app/signing.properties << EOF
-          storeFile=my-release-key.jks
+          storeFile=keystore.jks
           storePassword=${{ secrets.KEYSTORE_PASSWORD }}
           keyAlias=${{ secrets.KEY_ALIAS }}
           keyPassword=${{ secrets.KEY_PASSWORD }}
@@ -77,9 +77,9 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Release ${{ github.ref_name }}
-          tag_name: ${{ github.ref_name }}
-          body_path: ./release.txt
+            name: Release ${{ github.ref_name }}
+            tag_name: ${{ github.ref_name }}
+            body_path: coremark/release.txt
             files: |
               ./apks/app-debug.apk
               ./apks/app-release-unsigned.apk
