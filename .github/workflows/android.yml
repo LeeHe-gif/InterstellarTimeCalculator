@@ -53,14 +53,25 @@ jobs:
           name: app-apks
           path: ./apks
 
+      - name: Prepare release assets
+        run: |
+          cat <<EOF > release.txt
+            # $(date +"%Y-%m-%d %H:%M") compile result
+            contains：
+            - app-debug.apk
+            - app-release-unsigned.apk
+          EOF
+
       - name: Display structure of downloaded files
         run: ls -R ./apks
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+          name: v1.0
+          body_path: release.txt
           files: |
             ./apks/app-debug.apk
             ./apks/app-release-unsigned.apk
-          draft: false
-          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
