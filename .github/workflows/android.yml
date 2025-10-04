@@ -67,9 +67,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-            name: v${{ github.ref_name }}
             body_path: ./release.txt
-            tag_name: ${{ github.ref_name }}
+            if: github.ref_type == 'tag'
             files: |
               ./apks/app-debug.apk
               ./apks/app-release-unsigned.apk
