@@ -81,7 +81,7 @@ jobs:
             tag_name: ${{ github.ref_name }}
             body_path: release.txt
             files: |
-              ./apks/app-debug.apk
-              ./apks/app-release.apk
+              ./apks/debug/app-debug.apk
+              ./apks/release/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
