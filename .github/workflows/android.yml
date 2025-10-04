@@ -79,7 +79,7 @@ jobs:
         with:
             name: Release ${{ github.ref_name }}
             tag_name: ${{ github.ref_name }}
-            body_path: coremark/release.txt
+            body_path: release.txt
             files: |
               ./apks/app-debug.apk
               ./apks/app-release.apk
