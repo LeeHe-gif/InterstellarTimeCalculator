@@ -68,7 +68,7 @@ jobs:
             # $(date +"%Y-%m-%d %H:%M") compile result
             contains：
             - app-debug.apk
-            - app-release-unsigned.apk
+            - app-release.apk
           EOF
 
       - name: Display structure of downloaded files
@@ -82,6 +82,6 @@ jobs:
             body_path: coremark/release.txt
             files: |
               ./apks/app-debug.apk
-              ./apks/app-release-unsigned.apk
+              ./apks/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
