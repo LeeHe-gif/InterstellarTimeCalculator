@@ -261,24 +261,24 @@ class MainActivity : AppCompatActivity() {
             if (rbEarthToMiller.isChecked) {
                 // 地球时间 → 米勒星球时间
                 // 例如：输入1地球年，米勒时间 = 1 / (7*365*24) 年
-                val millerYears = inputTime / (earthYearsPerMillerHour * 365 * 24)
+                val millerYears = (inputTime * 365 * 24) / (earthYearsPerMillerHour * 365 * 24)
                 val millerDays = millerYears * 365
                 val millerHours = millerDays * 24
                 val millerMinutes = millerHours * 60
 
                 result = String.format(
-                    "在地球度过 %.1f 年 ≈ 在米勒星球：\n%.6f 年\n%.4f 天\n%.2f 小时\n%.1f 分钟",
+                    "在地球度过 %.3f 年 ≈ 在米勒星球：\n%.6f 年\n%.4f 天\n%.2f 小时\n%.1f 分钟",
                     inputTime, millerYears, millerDays, millerHours, millerMinutes
                 )
             } else {
                 // 米勒星球时间 → 地球时间
                 // 例如：输入1米勒年，地球时间 = 1 * (7*365*24) 年
-                val earthYears = inputTime * earthYearsPerMillerHour * 365 * 24
+                val earthYears = inputTime * earthYearsPerMillerHour
                 val earthDays = earthYears * 365
                 val earthHours = earthDays * 24
 
                 result = String.format(
-                    "在米勒星球度过 %.1f 年 ≈ 在地球：\n%.0f 年\n%.0f 天\n%.0f 小时",
+                    "在米勒星球度过 %.3f 年 ≈ 在地球：\n%.2f 年\n%.0f 天\n%.0f 小时",
                     inputTime, earthYears, earthDays, earthHours
                 )
             }
