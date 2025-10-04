@@ -69,6 +69,7 @@ jobs:
         with:
             name: v${{ github.ref_name }}
             body_path: ./release.txt
+            tag_name: ${{ github.ref_name }}
             files: |
               ./apks/app-debug.apk
               ./apks/app-release-unsigned.apk
