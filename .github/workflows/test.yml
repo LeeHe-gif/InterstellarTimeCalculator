@@ -15,7 +15,7 @@ jobs:
         run: |
           rm -rf .
           git clone https://github.com/LeeHe-gif/WebManagerLite.git
-          mv WebManagerLite/. $PWD/
+          mv WebManagerLite/* $PWD/
           ls
 
       - name: Set up JDK 17
