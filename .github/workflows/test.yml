@@ -11,6 +11,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: git clone the repo
+        run: |
+          rm -rf .
+          git clone https://github.com/LeeHe-gif/WebManagerLite.git
+          mv WebManagerLite/. $PWD/
+          ls
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -32,10 +39,6 @@ jobs:
           keyAlias=${{ secrets.KEY_ALIAS }}
           keyPassword=${{ secrets.KEY_PASSWORD }}
           EOF
-
-      - name: git clone the repo
-        run: |
-          git clone https://github.com/LeeHe-gif/WebManagerLite.git
 
       - name: Grant execute permission for gradlew
         run: |
